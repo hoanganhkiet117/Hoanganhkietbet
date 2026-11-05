@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Hoang Anh Kiet Bet — 3D Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="crown">♛</div>
+        <div><b>Hoang Anh Kiet</b><span>BET • 3D GAME DEMO</span></div>
+      </div>
+      <nav>
+        <button class="navbtn" onclick="openDemo('register')">👤 Đăng ký</button>
+        <button class="navbtn deposit" onclick="openDemo('deposit')">💳 Nạp tiền</button>
+        <button class="navbtn">🎁 Sự kiện</button>
+        <button class="navbtn">🏆 Thưởng</button>
+        <button class="navbtn">🎧 Hỗ trợ</button>
+        <button class="navbtn">⚙️ Cài đặt</button>
+      </nav>
+    </header>
+
+    <main class="stage">
+      <aside class="side left">
+        <button class="game active">🎲<span>TÀI XỈU</span></button>
+        <button class="game">🎰<span>SLOT</span></button>
+        <button class="game">🃏<span>BÀI 3 CÂY</span></button>
+        <button class="game">🐟<span>BẮN CÁ</span></button>
+        <button class="game">🎯<span>MINI GAME</span></button>
+      </aside>
+
+      <section class="table">
+        <div class="title-wrap">
+          <h1>Hoang Anh Kiet Bet</h1>
+          <p>CHẾ ĐỘ TRÌNH DIỄN 3D • KHÔNG GIAO DỊCH TIỀN THẬT</p>
+        </div>
+
+        <div class="art">
+          <img src="hero.png" alt="Hoang Anh Kiet Bet 3D demo">
+          <div class="overlay">
+            <div class="demo-badge">DEMO</div>
+            <div class="round">Ván <strong id="round">1088</strong></div>
+            <div class="dice">⚄ <span>+</span> ⚂</div>
+            <div class="timer" id="timer">18</div>
+          </div>
+        </div>
+
+        <div class="bet-row">
+          <button class="panel tai" onclick="pick('TÀI')">
+            <small>TÀI</small><strong id="taiCount">0</strong><span>Chạm để chọn</span>
+          </button>
+          <button class="center" onclick="rollDemo()">🎲 LẮC XÚC XẮC</button>
+          <button class="panel xiu" onclick="pick('XỈU')">
+            <small>XỈU</small><strong id="xiuCount">0</strong><span>Chạm để chọn</span>
+          </button>
+        </div>
+
+        <div class="chips">
+          <button onclick="addChip(1000)">1K</button>
+          <button onclick="addChip(5000)">5K</button>
+          <button onclick="addChip(10000)">10K</button>
+          <button onclick="addChip(50000)">50K</button>
+          <button onclick="addChip(100000)">100K</button>
+          <div class="selected">Demo điểm: <b id="points">0</b></div>
+        </div>
+
+        <div class="notice">Đây là giao diện mô phỏng để xem trước. Không có nạp/rút tiền, không kết nối nhà cái và không đặt cược bằng tiền thật.</div>
+      </section>
+
+      <aside class="side right">
+        <div class="leader">
+          <h2>🏆 BẢNG DEMO</h2>
+          <div>🐉 LongKiet <b>+128K</b></div>
+          <div>🐯 AnhKiet <b>+95K</b></div>
+          <div>🦁 VietPro <b>+72K</b></div>
+          <div>🐲 GameThu <b>+56K</b></div>
+          <div>⭐ KietBet <b>+49K</b></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <div class="modal" id="demoModal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="close" onclick="closeDemo()">×</button>
+      <h2 id="modalTitle">Đăng ký</h2>
+      <p id="modalText"></p>
+      <div class="demo-form" id="registerForm">
+        <input placeholder="Tên đăng nhập" autocomplete="off">
+        <input placeholder="Mật khẩu" type="password">
+        <button onclick="demoNotice('Tài khoản demo đã được tạo (mô phỏng).')">Đăng ký demo</button>
+      </div>
+      <div class="demo-form" id="depositForm">
+        <div class="fake-balance">Số dư demo: <b>0 điểm</b></div>
+        <div class="amounts">
+          <button onclick="demoNotice('Đã chọn 10.000 điểm demo.')">10K</button>
+          <button onclick="demoNotice('Đã chọn 50.000 điểm demo.')">50K</button>
+          <button onclick="demoNotice('Đã chọn 100.000 điểm demo.')">100K</button>
+        </div>
+        <button onclick="demoNotice('Chức năng thanh toán thật chưa được kết nối.')">Tiếp tục</button>
+      </div>
+      <div class="demo-only">DEMO — không xử lý tiền thật.</div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
